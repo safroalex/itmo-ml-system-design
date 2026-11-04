@@ -218,3 +218,6 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# DealRocket exports: client requests and company data stay local
+data/raw/

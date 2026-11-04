@@ -1,0 +1,157 @@
+{
+  "snapshot": {
+    "source": "admin",
+    "api": "https://server.dealrocket.ru/api/getResultsV2 (type=companies)",
+    "input_sha256": "ac7666bbb6bc0f5aa3fda693a96f2a3d98875c5fc6e2abb819cb9bbbdf1c892d",
+    "updated_at": "2026-11-04T15:31:19+00:00",
+    "eligible_queries": 148,
+    "queries_selected": 80,
+    "queries_fetched": 79,
+    "pairs": 1171,
+    "top_k": 15,
+    "seed": 42
+  },
+  "eligible_queries": 148,
+  "results_returned": {
+    "zero": 1,
+    "below_15": 1,
+    "at_api_cap_300": 73,
+    "n": 80
+  },
+  "query_funnel": {
+    "Ходы ассистента": 660,
+    "Завершены без ошибки": 510,
+    "Построен поиск": 409,
+    "Уникальные поиски": 250,
+    "Пригодны для оценки": 148,
+    "В выборке с результатами": 79
+  },
+  "assistant": {
+    "turn_states": {
+      "completed": 510,
+      "failed": 132,
+      "running": 12,
+      "unknown": 4,
+      "cancelled": 2
+    },
+    "failed_share": 0.2,
+    "top_errors": {
+      "query_preparation_failed": 40,
+      "query_unknown_effect": 34,
+      "без кода": 19,
+      "provider_invalid_response": 14,
+      "query_cancelled": 8
+    },
+    "duration_s_p50": 54.7,
+    "duration_s_p95": 1250.8
+  },
+  "filters_in_unique_searches": {
+    "maps": 195,
+    "customIndustries": 155,
+    "industries": 148,
+    "okved": 101,
+    "seniority": 91,
+    "functions": 82,
+    "companyIdsExclude": 39,
+    "excludeAll": 29,
+    "city": 28,
+    "jobTitle": 24,
+    "innsList": 20,
+    "companySize": 18
+  },
+  "keyword_search_share": 0.028,
+  "queries": {
+    "n": 79,
+    "words_median": 7.0,
+    "words_p90": 18.200000000000003,
+    "share_with_role": 0.494,
+    "share_with_context": 0.089,
+    "refinements": 13
+  },
+  "pairs": {
+    "n": 1171,
+    "queries": 79,
+    "per_query_min": 1,
+    "unique_companies": 1081,
+    "companies_in_2plus_queries": 67,
+    "pairs_with_repeated_company": 157,
+    "query_groups": 50,
+    "largest_group_queries": 14,
+    "empty_description_share": 0.078,
+    "short_description_share": 0.058,
+    "description_chars_median": 232.5,
+    "description_chars_p95": 1368.5,
+    "website_share": 0.84,
+    "city_share": 0.801,
+    "sources_per_company_median": 4.0,
+    "empty_description_with_source_text_share": 0.011,
+    "empty_description_share_legal_form": 0.412,
+    "empty_description_share_other": 0.034,
+    "legal_form_share_of_empty": 0.615,
+    "legal_form_in_name_share": 0.116,
+    "non_russian_markers_share": 0.003,
+    "url_in_description_share": 0.084,
+    "contact_in_description_share": 0.172,
+    "duplicate_name_within_query_share": 0.01,
+    "lexical_overlap_share": 0.688,
+    "ai_status_filled": 0,
+    "text_chars_mean": 441.8
+  },
+  "per_query": {
+    "queries_with_half_empty": 2,
+    "queries_overlap_below_half": 24
+  },
+  "top_industry_tags": {
+    "производители": 378,
+    "строительные компании": 159,
+    "продавцы продуктов питания": 142,
+    "интернет-магазины": 137,
+    "магазины стройматериалов": 125,
+    "строительные и ремонтные работы": 96,
+    "заводы, фабрики, комбинаты, цеха": 77,
+    "производство": 75,
+    "промышленность": 75,
+    "металлообработчики": 71
+  },
+  "excel": {
+    "links": 1945,
+    "links_with_id_filters": 1687,
+    "share_with_missing_ids": 0.688,
+    "by_month": {
+      "2026-03": {
+        "share": 0.814,
+        "n": 936
+      },
+      "2026-04": {
+        "share": 0.366,
+        "n": 71
+      },
+      "2026-05": {
+        "share": 0.467,
+        "n": 135
+      },
+      "2026-06": {
+        "share": 0.592,
+        "n": 238
+      },
+      "2026-07": {
+        "share": 0.542,
+        "n": 275
+      },
+      "2026-08": {
+        "share": 0.625,
+        "n": 32
+      }
+    },
+    "segments_top": {
+      "IT, разработка и телеком": 109,
+      "Строительство и недвижимость": 82,
+      "Медицина, клиники и фарма": 82,
+      "Производство и промышленность": 52,
+      "Розница и интернет-магазины": 35,
+      "Логистика, транспорт и авто": 25,
+      "HoReCa и общественное питание": 19,
+      "Оптовая торговля и дистрибуция": 15
+    }
+  }
+}

@@ -7,17 +7,24 @@
 **«не подходит»** или **«недостаточно данных»** с кратким обоснованием.
 Цель — ускорить ручной отбор компаний для B2B-продаж.
 
-**Этап:** проектирование. В ДЗ №1 подготовлены
+**Этап:** подготовка данных. В ДЗ №1 подготовлены
 [дизайн-документ](docs/ml_system_design_doc.md) и окружение разработки.
-Следующие этапы: разметка данных, бейзлайн, LLM-классификатор и пилот.
+В ДЗ №2 собран снимок запросов и выдачи, проведён [EDA](reports/eda.md)
+и описаны этапы подготовки данных и моделей.
+Следующие этапы: критерии и разметка, бейзлайн, LLM-классификатор и пилот.
 Первичный поиск, сбор контактов и изменение интерфейса не входят в проект.
 
 ## Структура
 
 ```text
 docs/ml_system_design_doc.md  — требования, архитектура и план оценки
+reports/eda.md               — EDA: выводы и графики (reports/figures/)
+reports/eda_summary.json     — агрегаты EDA
+scripts/                     — выгрузка данных и EDA
+data/raw/                    — локальные выгрузки, не входят в Git
 pyproject.toml               — версия Python и настройки Ruff
 requirements-dev.txt         — инструменты разработки
+requirements-eda.txt         — зависимости выгрузки и EDA
 .pre-commit-config.yaml      — проверки перед коммитом
 .markdownlint-cli2.yaml      — правила проверки Markdown
 ```
@@ -48,9 +55,33 @@ Ruff проверяет и форматирует Python-код. Автоисп�
 и `ruff format .`. Версии Ruff в `requirements-dev.txt`
 и `.pre-commit-config.yaml` должны совпадать.
 
+## Данные и EDA
+
+Выгрузки содержат данные DealRocket и хранятся только локально в `data/raw/`.
+Для доступа нужны токен API и сессия админки DealRocket; их выдаёт владелец сервиса.
+
+```bash
+python3.12 -m venv .venv-eda
+.venv-eda/bin/pip install -r requirements-eda.txt
+export DEALROCKET_ADMIN_COOKIE='...'   # cookie сессии админки
+export DEALROCKET_TOKEN='...'          # токен API
+.venv-eda/bin/python scripts/export_admin_dialogs.py
+.venv-eda/bin/python scripts/fetch_dealrocket_results.py --source admin --queries 80
+.venv-eda/bin/python scripts/eda.py --excel <книга запросов менеджеров>.xlsx
+```
+
+Выгрузка выдачи повторяет поиск заново и пишет результат после каждого запроса:
+прерванный запуск продолжается с места остановки. Повторная выгрузка даёт
+новый снимок, потому что база и справочники DealRocket меняются.
+
 ## ДЗ №1
 
 [Условия задания](https://gist.github.com/pacifikus/47424379293e0874859354ecd130ba13).
 Ветка — `hw_1`, PR — в `main`. Ментору предоставляется доступ к репозиторию.
 После проверки автора — ревью ментора и двух студентов, исправления и слияние.
 Для получения оценки также требуется проверить работы двух студентов.
+
+## ДЗ №2
+
+[Условия задания](https://gist.github.com/pacifikus/bada0e4b597852e4bb50512daf451929).
+Ветка — `hw_2`. Результаты: [EDA](reports/eda.md) и раздел 3 дизайн-документа.
