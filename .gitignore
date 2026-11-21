@@ -221,3 +221,6 @@ __marimo__/
 
 # DealRocket exports: client requests and company data stay local
 data/raw/
+
+# Локальные бланки, эталоны и построчные результаты учебного эксперимента
+data/work/
